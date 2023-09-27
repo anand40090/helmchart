@@ -329,4 +329,41 @@ spec:
 I love this command because it locally renders the templates by replacing all the placeholders with its actual values.
 
 There is one more sanitary command lint provided by helm which you could run to identify possible issues forehand.
+```
+helm lint springboot
+output -
+==> Linting springboot
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
+
+```
+###  helm -debug -dry-run
+The next check which we are going to do is -dry-run. 
+Helm is full of such useful utility which allows developer to test its configuration before running the final install command
+Use the following -dry-run command to verify your Spring Boot Helm Chart
+If there is something wrong with your Helm chart configuration then it will going to prompt you immediately.
+
+```
+helm install springboot --debug --dry-run springboot
+
+```
+### helm install
+
+helm install myfirstspringboot springboot
+![image](https://github.com/anand40090/helmchart/assets/32446706/15eae125-35e4-4ee5-90a5-756bb6d4a517)
+
+Lets break down the command because if you are doing it for the first time then it might be little confusing for you.
+
+There are two name which we used during the installation command -
+
+1. myfirstspringboot : It's a release name for helm chart otherwise helm will generate its own release name that is why we have assigned this name.
+1. springboot : It is our actual chart name which we created in Step 2.
+
+### Verify the helm install
+Next question which comes into my mind - "How to see all the releases? "
+
+Use the following list command to list down all the releases -
+![image](https://github.com/anand40090/helmchart/assets/32446706/f04e629f-3fe5-4b68-a2ee-294f1fe33cae)
+
 
